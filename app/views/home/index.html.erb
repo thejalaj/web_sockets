@@ -1,0 +1,25 @@
+<h1>Learning web sockets sample 1</h1>
+<b><p>Note: Brower it over multiple windows and try it</p></b>
+<hr>
+<br>
+Chat: <span id="chat"></span>
+<hr>
+Message:
+<textarea id="msg" style="width: 280px; height: 80px;"></textarea>
+<hr>
+<button id="send">Send Message</button>
+
+<script>
+  $(document).ready(function(){
+
+    App.chat.received=function(data)
+    {
+      $("#chat").append(data['message'])
+    }
+
+    $("#send").click(function(){
+      msg= $("#msg").val()
+      App.chat.send_msg(msg)
+    })
+  })
+</script>
